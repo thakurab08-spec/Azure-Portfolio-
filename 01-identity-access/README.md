@@ -45,3 +45,8 @@ group-based access control, RBAC role assignments, and MFA policy.
 - Microsoft Entra Security Defaults
 - Azure Portal (portal.azure.com)
 
+## Screeshots 
+[Users](screenshots/01-users-list.png)
+[Groups](screenshots/02-groups-list.png)
+[RBAC](screenshots/03-rbac-assignments.png)
+[MFA](screenshots/04-security-defaults.png)
