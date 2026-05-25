@@ -7,21 +7,15 @@ subnets, Network Security Group rules, and VNet Peering to
 connect the networks privately.
 
 ## What I built
-
-| Component | Details |
-| VNets created | 2 (vnet-hub, vnet-spoke) |
-| Subnets | 2 (subnet-web, subnet-app) |
-| NSG rules | 3 (Allow HTTP, Allow HTTPS, Deny All) |
-| VNet Peering | Bidirectional — hub to spoke |
-| Region | North Europe |
-
----
+- Created resource group in region North Europe
+- Created 2 VNets (vnet-hub, vnet-spoke)
+- Created 2 Subnets (subnet-web, subnet-app)
+- Applied 3 NSG rules (Allow HTTP, Allow HTTPS, Deny All)
+- Did VNet Peering (hub to spoke)
 
 ## Network Architecture
 
-![Network Diagram](screenshots/network-diagram.png)
-
----
+[Network Diagram](screenshots/network-diagram.png)
 
 ## Step-by-step — what I did
 
@@ -43,8 +37,7 @@ connect the networks privately.
   - Priority 110: Allow HTTPS (port 443)
   - Priority 4000: Deny all other inbound traffic
 - Associated NSG to subnet-web in vnet-hub
-- Note: NSGs must be explicitly associated —
-  creating one does not activate it
+- Note: NSGs must be explicitly associated, creating one does not activate it
 
 ### 4. Configured VNet Peering
 - Created bidirectional peering between vnet-hub
@@ -53,12 +46,9 @@ connect the networks privately.
 - Resources in either VNet can now communicate
   privately without traversing the public internet
 
----
-
 ## Screenshots
 
 | Step | Screenshot |
-|---|---|
 | Resource group | ![RG](screenshots/01-resource-group.png) |
 | vnet-hub overview | ![Hub](screenshots/02-vnet-hub.png) |
 | vnet-spoke overview | ![Spoke](screenshots/03-vnet-spoke.png) |
@@ -67,7 +57,6 @@ connect the networks privately.
 | VNet peering connected | ![Peering](screenshots/06-vnet-peering.png) |
 | Cleanup complete | ![Cleanup](screenshots/07-cleanup.png) |
 
----
 
 ## Key concepts demonstrated
 - VNet design and IP address planning (CIDR)
@@ -77,23 +66,8 @@ connect the networks privately.
 - VNet Peering for private cross-network communication
 - Address spaces must not overlap for peering to work
 
----
-
 ## AZ-104 domains covered
 - Domain 4: Implement and manage virtual networking
   - Create and configure VNets and subnets
   - Configure NSGs and security rules
   - Configure VNet peering
-
----
-
-## Azure Portfolio
-
-| Project | Topic | Status |
-|---|---|---|
-| 01 — Identity & Access | Entra ID, RBAC, MFA | Complete |
-| 02 — Virtual Networks | VNet, NSG, Peering | Complete |
-| 03 — VM Deployment | Compute, Bastion | Upcoming |
-| 04 — Storage | Blob, SAS, Lifecycle | Upcoming |
-| 05 — Monitoring | Log Analytics, KQL | Upcoming |
-| 06 — Infra as Code | ARM, Bicep | Upcoming |
