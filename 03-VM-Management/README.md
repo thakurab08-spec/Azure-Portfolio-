@@ -8,17 +8,10 @@ secure access via Azure Bastion, created snapshots for backup,
 and configured auto-shutdown for cost management.
 
 ## What I built
-
-| Component | Details |
-| Windows VM | vm-windows-01 — Windows Server 2022, Standard_B1s |
-| Linux VM | vm-linux-01 — Ubuntu 22.04 LTS, Standard_B1s |
-| Availability Set | avset-vm-lab — 2 fault domains, 5 update domains |
-| Secure access | Azure Bastion (Basic tier) — no public RDP/SSH |
-| Backup | Snapshot of Windows VM OS disk |
-| Cost control | Auto-shutdown at 19:00 GMT with email alert |
-| Region | North Europe |
-
----
+A complete Azure compute environment demonstrating Windows and Linux
+VM deployment, high availability configuration using Availability Sets,
+secure browser-based access via Azure Bastion, disk snapshots for
+backup, and auto-shutdown for cost management.
 
 ## Step-by-step — what I did
 
@@ -27,12 +20,12 @@ and configured auto-shutdown for cost management.
 - vnet-vm-lab with subnet-vms (10.0.1.0/24) for VM connectivity
 
 ### 2. Deployed Windows Server VM
-- Windows Server 2022 Datacenter, Standard_B1s size
+- Windows Server 2022 Datacenter, Standard E2s_v3 size
 - No public IP — access via Bastion only
 - Standard HDD OS disk for cost efficiency
 
 ### 3. Deployed Linux VM
-- Ubuntu Server 22.04 LTS, Standard_B1s
+- Ubuntu Server 22.04 LTS, Standard E2s_v3
 - Same VNet and subnet as Windows VM
 - Password authentication configured
 
@@ -54,27 +47,21 @@ and configured auto-shutdown for cost management.
 - Can be used to restore or clone the VM
 
 ### 7. Configured Auto-shutdown
-- Both VMs set to auto-shutdown at 19:00 GMT
+- Both VMs set to auto-shutdown at 17:00 GMT
 - Email notification enabled before shutdown
 - Prevents unexpected charges from forgotten running VMs
 
----
-
 ## Screenshots
-
-| Step | Screenshot |
-|---|---|
-| Resource group | ![RG](screenshots/01-resource-group.png) |
-| Windows VM deployed | ![Win](screenshots/02-vm-windows.png) |
-| Linux VM deployed | ![Linux](screenshots/03-vm-linux.png) |
-| Both VMs running | ![Both](screenshots/04-both-vms-running.png) |
-| Availability Set | ![AvSet](screenshots/05-availability-set.png) |
-| Bastion connection | ![Bastion](screenshots/06-bastion-connection.png) |
-| VM Snapshot | ![Snap](screenshots/07-snapshot.png) |
-| Auto-shutdown | ![Shutdown](screenshots/08-auto-shutdown.png) |
-| Cleanup complete | ![Clean](screenshots/09-cleanup.png) |
-
----
+| Resource group | [RG](screenshots/01-resource-group.png) |
+| Windows VM deployed | [Win](screenshots/02-vm-windows.png) |
+| Linux VM deployed | [Linux](screenshots/03-vm-linux.png) |
+| Both VMs running | [Both](screenshots/04-both-vms-running.png) |
+| Availability Set | [AvSet](screenshots/05-availability-set.png) |
+| Bastion connection | [Bastion](screenshots/06-bastion-connection.png) |
+| Bastion VM | [BastionVM](screenshots/07-bastion-vm.png) |
+| VM Snapshot | [Snap](screenshots/08-snapshot.png) |
+| Auto-shutdown | [Shutdown](screenshots/09-auto-shutdown.png) |
+| Cleanup complete | ![Clean](screenshots/10-cleanup.png) |
 
 ## Key concepts demonstrated
 - VM deployment — Windows and Linux side by side
@@ -84,8 +71,6 @@ and configured auto-shutdown for cost management.
 - Snapshots — point-in-time disk backup
 - Auto-shutdown — cost management best practice
 - No public RDP/SSH — security best practice
-
----
 
 ## AZ-104 domains covered
 - Domain 3: Deploy and manage Azure compute resources
